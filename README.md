@@ -6,4 +6,4 @@ El sitio incluye un catálogo de productos, un carrusel de reseñas de clientes 
 - HTML5: Estructura de las secciones, el catálogo y el formulario.
 - CSS3: Diseño visual, adaptación para celulares y el movimiento del carrusel de reseñas.
 - Google Fonts: Tipografías para los títulos y párrafos.
-- Formspree: Funcionamiento del formulario de contacto.
+- Formspree: Funcionamiento del formulario de contacto.# Proyecto-Front-End-Js
