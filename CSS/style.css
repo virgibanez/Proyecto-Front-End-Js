@@ -50,7 +50,7 @@ header {
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: flex-start;/*era center*/
+    align-items: flex-start;
 }
 
 .video-fondo {
@@ -79,24 +79,7 @@ header {
 
     margin-top: 50px;
     transform: none;
-    /*max-width: 95%;*/
-    /*height: 100%;*/
-    /*padding: auto;*/
 }
-/*alternativa para marca en texto
-.portada-texto h1{
-    font-style:italic !important;
-    font-size: 4.6rem;
-    text-shadow: 2px 2px 3px rgb(16, 45, 61);
-    padding-top: 25px;
-}
-
-.portada-texto h2{
-    color: #5a9cf1;
-    text-shadow: 2px 2px 2px rgb(16, 45, 61);
-    padding-top: 2px !important;
-}
-fin alternativa marca texto*/
 
 .marca-img {
     width: 100%;
@@ -104,14 +87,6 @@ fin alternativa marca texto*/
     height: auto !important;
     display: block;
     margin: 0 auto;
-}
-
-.portada-texto h3{
-    font-size: 1.40rem;
-    color: #522006;
-    text-shadow: 2px 2px 3px #e4904c;
-    padding-top: 100px;
-    margin-bottom: 0;
 }
 
 h1{
@@ -355,13 +330,13 @@ footer a, footer p{
 }
 
 
-/* ---> MEDIA QUERIES (Responsivo unificado) */
+/* ---> MEDIA QUERIES */
 @media (max-width: 600px) {
     /* Menú navegador en columna*/
     .nav-lista { 
         flex-direction: column; 
         align-items: center;
-        padding: 15px;/*agregado*/
+        padding: 15px;
     }
 
     /*Cajas de productos en columna*/
@@ -372,35 +347,28 @@ footer a, footer p{
 
     /*Mantiene proporciones*/
     .portada {
-        height: 75vh;/*antes era auto*/
-        min-height: 400px; /*antes era auto*/
+        height: 75vh;
+        min-height: 400px;
         align-items: flex-start !important;
-        /*padding-bottom: 0;*/
     }
     .video-fondo {
-        position: absolute; /*agregado*/
+        position: absolute;
         width: 100%;
         height: 100%;
         object-fit: cover; /*evita franjas negras*/
-        /*height: auto;
-        max-height: 50vh;
-        object-fit: contain;*/
     }
-    .portada-texto {/*nuevo*/
+    .portada-texto {
         width: 85%;
         margin-top: 30px !important;
         transform: none;
     }
+
     /*reduccion estricat de la marca para q no pise el navegador*/
-    .marca-img {/*nuevo*/
+    .marca-img {
         max-width: 240px !important;
         margin-bottom: 5px;
     }
-    .portada-texto h3 {/*nuevo*/
-        font-size: 1.1rem !important;
-        margin-top: 5px;
-    }
-
+    
     .carrusel-resenas {
         flex-direction: row !important; 
         align-items: stretch !important;
@@ -408,6 +376,6 @@ footer a, footer p{
     .footer-contenedor {
         flex-direction: column;
         text-align: center;
-        gap: 20px; /*nuevo*/
+        gap: 20px;
     }
 }
