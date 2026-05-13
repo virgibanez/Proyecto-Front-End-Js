@@ -49,8 +49,8 @@ header {
     height: 100vh;
     overflow: hidden;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: flex-start;/*era center*/
 }
 
 .video-fondo {
@@ -63,41 +63,61 @@ header {
     z-index: -1;
 }
 
+
+
 .portada-texto{
     position:relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
     text-align: center;
-    max-width: 95%;
-    height: 100%;
-    padding: auto;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 50px;
+    transform: none;
+    /*max-width: 95%;*/
+    /*height: 100%;*/
+    /*padding: auto;*/
+}
+/*alternativa para marca en texto
+.portada-texto h1{
+    font-style:italic !important;
+    font-size: 4.6rem;
+    text-shadow: 2px 2px 3px rgb(16, 45, 61);
+    padding-top: 25px;
+}
+
+.portada-texto h2{
+    color: #5a9cf1;
     text-shadow: 2px 2px 2px rgb(16, 45, 61);
+    padding-top: 2px !important;
+}
+fin alternativa marca texto*/
+
+.marca-img {
+    width: 100%;
+    max-width: 480px;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+}
+
+.portada-texto h3{
+    font-size: 1.40rem;
+    color: #522006;
+    text-shadow: 2px 2px 3px #e4904c;
+    padding-top: 100px;
+    margin-bottom: 0;
 }
 
 h1{
     font-family: "Coiny", system-ui !important;
     color: #5a9cf1;
-    font-size: 3.8rem;
-}
-
-/* MEDIA QUERIES (Responsivo) */
-@media (max-width: 600px) {
-    .nav-lista { 
-        flex-direction: column; 
-        align-items: center;
-    }
-    .contenedor-flex{
-        flex-direction: column;
-        align-items: center;
-    }
-    .portada {
-        height: auto;
-        min-height: auto;
-        padding-bottom: 0;
-    }
-    .video-fondo{
-        height: auto;
-        max-height: 50vh;
-        object-fit: contain;
-    }
+    font-size: 3.0rem;
 }
 
 
@@ -111,17 +131,21 @@ h1{
     display: flex;
     flex-wrap: wrap;
     padding: 25px;
-    justify-content:space-evenly;
+    justify-content:center;
+    gap: 20px;
 }
 
 .caja-producto {
     /*---Estructura---*/
     display: flex;
     flex-direction: column;
-    width: 370px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 320px;
+    max-width: 100%;
     padding: 20px;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 
     /*---Fondo y bordes---*/
     border: 1px solid lightskyblue;
@@ -131,9 +155,16 @@ h1{
     box-shadow: 10px 10px 15px lightskyblue;
     transition: all 0.3s ease;
 }
+
 .caja-producto:hover { 
     transform:scale(1.1);
     transition: 0.3s;
+}
+
+.caja-producto img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 /*SECCION RESEÑAS*/
@@ -171,8 +202,8 @@ h1{
 
 .carrusel-resenas { 
     display: flex;
-    flex-wrap: nowrap !important; /* Mantiene las cajas en una sola línea */
-    overflow-x: auto;  /* Habilita el desplazamiento */
+    flex-wrap: nowrap !important;
+    overflow-x: auto; 
     justify-content: flex-start !important;
     gap: 25px;
     padding-bottom: 30px;  
@@ -197,7 +228,7 @@ h1{
 }
 
 .carrusel-resenas .caja-resena {
-    flex: 0 0 250px; /* Ancho fijo para que no se aplasten */
+    flex: 0 0 250px;
     scroll-snap-align: center; 
 }
 
@@ -306,7 +337,6 @@ footer a, footer p{
     font-weight: bold;
     transition: 0.3s;
     text-shadow: none !important;
-    
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
@@ -324,8 +354,53 @@ footer a, footer p{
     padding-top: 20px;
 }
 
-/* Responsivo para carrusel y footer */
+
+/* ---> MEDIA QUERIES (Responsivo unificado) */
 @media (max-width: 600px) {
+    /* Menú navegador en columna*/
+    .nav-lista { 
+        flex-direction: column; 
+        align-items: center;
+        padding: 15px;/*agregado*/
+    }
+
+    /*Cajas de productos en columna*/
+    .contenedor-flex{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /*Mantiene proporciones*/
+    .portada {
+        height: 75vh;/*antes era auto*/
+        min-height: 400px; /*antes era auto*/
+        align-items: flex-start !important;
+        /*padding-bottom: 0;*/
+    }
+    .video-fondo {
+        position: absolute; /*agregado*/
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /*evita franjas negras*/
+        /*height: auto;
+        max-height: 50vh;
+        object-fit: contain;*/
+    }
+    .portada-texto {/*nuevo*/
+        width: 85%;
+        margin-top: 30px !important;
+        transform: none;
+    }
+    /*reduccion estricat de la marca para q no pise el navegador*/
+    .marca-img {/*nuevo*/
+        max-width: 240px !important;
+        margin-bottom: 5px;
+    }
+    .portada-texto h3 {/*nuevo*/
+        font-size: 1.1rem !important;
+        margin-top: 5px;
+    }
+
     .carrusel-resenas {
         flex-direction: row !important; 
         align-items: stretch !important;
@@ -333,5 +408,6 @@ footer a, footer p{
     .footer-contenedor {
         flex-direction: column;
         text-align: center;
+        gap: 20px; /*nuevo*/
     }
 }
